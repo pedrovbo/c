@@ -10,12 +10,16 @@ int main(void){
     
     int a = 10;
     int b = 15;
+    int *c = &a;
+    int *d = &b;
 
+
+    printf("Valor de a = %d \nValor de b = %d\n", a, b);
+    
+
+    troca(c, d);
     printf("Valor de a = %d \nValor de b = %d\n", a, b);
     printf("\n\n");
-
-    troca(&a, &b);
-    printf("Valor de a = %d \nValor de b = %d\n", a, b);
 
     return EXIT_SUCCESS;
 }

@@ -23,9 +23,12 @@ int main()
 
     paciente.peso = 80.1;
 
-    printf("Peso do paciente é: %.2f", paciente.peso);
+    printf("Peso do paciente é: %.2f\n\n", paciente.peso);
 
+    //  inicializando uma nova variável da struct cadastro
+    struct cadastro aluno = {"Maria", 32, "Rua Varchar", 56.2, 1.60};
+
+    printf("Altura do aluno = %.2f", aluno.altura);
     printf("\n\n");
-
-        return 0;
+    return 0;
 }

@@ -1,7 +1,7 @@
 //usando struct dentro de struct
 
 #include<stdio.h>
-#include<conio.h>
+#include<ncurses.h>
 
 struct tp_endereco
 {

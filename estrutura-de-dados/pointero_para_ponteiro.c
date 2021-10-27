@@ -4,8 +4,8 @@
 int main()
 {
 
-    int **pt2;
-    int *pt1;
+    int ** pt2;
+    int * pt1;
     int x = 10;
     printf("Valor de x = %d\n", x);
     pt2 = &pt1;

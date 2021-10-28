@@ -12,6 +12,16 @@ struct cadastro
 
 }; // a variável que armazenará os dados do struct pode ser declarada aqui
 
+void imprimir (struct cadastro paciente){
+    printf("Nome: %s\n", paciente.nome);
+    printf("Idade: %d\n", paciente.idade);
+    printf("Endereço: %s\n", paciente.endereco);
+    printf("Peso: %.2f\n", paciente.peso);
+    printf("Altura: %.2f\n", paciente.altura);
+
+};
+
+
 int main()
 {
 
@@ -24,7 +34,7 @@ int main()
     struct cadastro *ptrPaciente = &paciente;
     //  alterando um campo do struct
 
-    paciente.peso = 80.1;
+    paciente.peso = 80.1;    
 
     printf("Peso do paciente é: %.2f\n", paciente.peso);
     //  inicializando uma nova variável da struct cadastro
@@ -39,6 +49,9 @@ int main()
     strcpy(ptrPaciente->nome, "Jaime");
     printf("Acessando nome do paciente através do ponteiro ptrPaciente, nome = %d\n", ptrPaciente->idade);
     printf("Acessando nome do paciente através do ponteiro ptrPaciente, nome = %s\n", ptrPaciente->nome);
+    printf("\n\n");
+    
+    imprimir(paciente);
 
     printf("\n\n");
     return 0;

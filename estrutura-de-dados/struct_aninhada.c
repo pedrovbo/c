@@ -21,7 +21,33 @@ int main(){
 
     cadastro cliente;
 
+    //  para acessar os membros da struct:
+    /*
+    Para atribuição de valores:
+    <nome_da_estrutura>.<nome_do_membro_da_estrutura>
+    cliente.nome
+    cliente.idade
+    cliente.cpf
+    cliente.endereco
+    cliente.cep
     
+
+    Para leitura do teclado:
+    &<nome_da_estrutura>.<nome_do_membro_da_estrutura>
+    &cliente.nome
+    &cliente.idade
+    &cliente.cpf
+    &cliente.endereco
+    &cliente.cep
+
+    Para impressão:
+    <nome_da_estrutura>.<nome_do_membro_da_estrutura>
+    cliente.nome
+    cliente.idade
+    cliente.cpf
+    cliente.endereco
+    cliente.cep
+    */
     
     return 0;
 }

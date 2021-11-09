@@ -1,4 +1,17 @@
-# c-language-studies
+# C LANGUAGE STUDIES
 
+## c-syntax-studies  
 
-JUST SHARING C LANGUANGE STUDIES
+- A bunch of basic C syntax studies. 
+
+## estrutura-de-dados
+
+- Data structure studies.
+
+## problems-solving
+
+- Solving some code challenges.
+
+## simple-programs
+
+- Just testing some codes.

@@ -1,4 +1,4 @@
-# C LANGUAGE STUDIES
+# C
 
 ## c-syntax-studies  
 

@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
+
+// Busca Binária
 int busca_binaria ( int lista [ ] , int elemento , int inicio , int fim ) {
     int meio = floor ( ( fim + inicio ) / 2 );
     if ( ( inicio == fim ) && ( lista [ meio ] != elemento ) )
@@ -12,6 +14,7 @@ int busca_binaria ( int lista [ ] , int elemento , int inicio , int fim ) {
     else busca_binaria ( lista , elemento , meio + 1 , fim );
 }
 
+// Lista Sequencial
 int main(){
     int listaOrdenada[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 

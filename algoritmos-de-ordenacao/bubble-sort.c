@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-void bolha(int *v, int tamanho);
+void bubbleSort(int *v, int tamanho);
 
 void main(){
 
@@ -17,7 +17,7 @@ void main(){
     }
 
     printf("\nVetor ordenado: \n");
-    bolha(numeros, len);
+    bubbleSort(numeros, len);
     for (int i = 0; i < len; i++)
     {
         printf("%d ", numeros[i]);
@@ -27,7 +27,7 @@ void main(){
   
 }
 
-void bolha (int *v, int tamanho)
+void bubbleSort(int *v, int tamanho)
 {
 
     int aux;

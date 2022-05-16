@@ -1,65 +1,62 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-#define max 10
+void mergesort(int *v, int n); // o vetor e seu tamanho como parâmetros, respectivamente
+void sort(int *v, int *c, int i, int f);
+void merge(int *v, int *c, int i, int m, int f);
 
-int a[11] = {10, 14, 19, 26, 27, 31, 33, 35, 42, 44, 0};
-int b[10];
-
-void merging(int low, int mid, int high);
-void sort(int low, int high);
-
-int main()
+int main(void)
 {
-    int i;
-
-    printf("List before sorting\n");
-
-    for (i = 0; i <= max; i++)
-        printf("%d ", a[i]);
-
-    sort(0, max);
-
-    printf("\nList after sorting\n");
-
-    for (i = 0; i <= max; i++)
-        printf("%d ", a[i]);
+	int i;
+	int v[8] = {-1, 7, -3, 11, 4, -2, 4, 8};
+	printf("Vetor desordenado: ");
+	for (i = 0; i < 8; i++)
+		printf("%d ", v[i]);
+	putchar('\n');
+	mergesort(v, 8);
+	printf("Vetor ordenado: ");
+	for (i = 0; i < 8; i++)
+		printf("%d ", v[i]);
+	putchar('\n');
+	return 0;
 }
 
-void merging(int low, int mid, int high)
+void mergesort(int *v, int n)
 {
-    int l1, l2, i;
-
-    for (l1 = low, l2 = mid + 1, i = low; l1 <= mid && l2 <= high; i++)
-    {
-        if (a[l1] <= a[l2])
-            b[i] = a[l1++];
-        else
-            b[i] = a[l2++];
-    }
-
-    while (l1 <= mid)
-        b[i++] = a[l1++];
-
-    while (l2 <= high)
-        b[i++] = a[l2++];
-
-    for (i = low; i <= high; i++)
-        a[i] = b[i];
+	int *c = malloc(sizeof(int) * n); //  criação de um novo vetor com o mesmo tamanho do recebido como parâmetro
+	sort(v, c, 0, n - 1);
+	free(c);
 }
 
-void sort(int low, int high)
-{
-    int mid;
+void sort(int *v, int *c, int i, int f)
+{ //  parâmetros -> vetor original, vetor destino, inicio, fim
+	if (i >= f)
+		return;
+	int m = (i + f) / 2; //  definindo o valor do meio do vetor -> fatiando em duas partes o vetor
+	sort(v, c, i, m);
+	sort(v, c, m + 1, f);
+	/* Se v[m] <= v[m + 1], então v[i..f] já está ordenado. */
+	if (v[m] <= v[m + 1])
+		return;
+	merge(v, c, i, m, f);
+}
 
-    if (low < high)
-    {
-        mid = (low + high) / 2;
-        sort(low, mid);
-        sort(mid + 1, high);
-        merging(low, mid, high);
-    }
-    else
-    {
-        return;
-    }
+void merge(int *v, int *c, int i, int m, int f)
+{ //  parâmetros -> vetor original, vetor destino, inicio, meio, fim
+	int z, iv = i, ic = m + 1;
+	for (z = i; z <= f; z++)
+		c[z] = v[z];
+	z = i;
+	while (iv <= m && ic <= f)
+	{
+		/* Invariante: v[i..z] possui os valores de v[iv..m] e v[ic..f] em ordem crescente. */
+		if (c[iv] < c[ic])
+			v[z++] = c[iv++];
+		else /* if (c[iv] > c[ic]) */
+			v[z++] = c[ic++];
+	}
+	while (iv <= m)
+		v[z++] = c[iv++];
+	while (ic <= f)
+		v[z++] = c[ic++];
 }
